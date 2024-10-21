@@ -1,0 +1,111 @@
+Jenkins
+------------
+it is help to perform automatic testing like continues initigration and continues deployement
+_>continoues integration is nothing but we developers written a code in sub part we can comabin all the code here
+   _.code-.build->integrationn->continue inegration
+   ->code deployement->code-.build->integration->UAT(user acceptance test)-> Continudeployement
+   
+Why CI?
+before CI 
+3 developer code will store in git hub repositry then->move to integration-> testing
+After CI 
+We created one server that is only CI server
+3devlopers code will store in git hub then it will rul all the funtions at atime like build test deployement
+-----------------------------------------------------
+What is pipeline
+it is nithing but step by step excution
+verion cotrol(github code will stored hree)
+build(take that code and build it to conver jar file or war file)
+unit test(testi g will done here is thre any error it will go back and again build the code till success)
+deploy
+auto testdeploy to production
+after it will give production feedback
+---------------------------------------------------------------------------------------
+Workflow
+--------
+we can attach git,mavin,selenium,Aritifactry plugins to jenkins.thats why we have to install git maven java
+once developer put the code github jenkines will pull the code and send to maven to build
+once build the code and jenkins will pul that code and sent to selinum for testing
+once testing is done.jenkins pull the cosde and send to arctifactory
+we can also deploy with jenkins
+
+jenkins master is divide the work to slaves
+to give commuication between master and slaves we have to install some keys
+According to lables the work will be assign
+like l1->slave1 l2->slave 2
+
+------------------------------------------------------------------
+it is open sources and build in java
+developed by sun microsystems.(saled to oracle)
+jenkins based on plugin tooles,there are1000+ plugins in jenkins
+it also support the cloud based architure.
+ow to install jenkins using with yum ?
+Create a instance _. connect->
+First we have to check jenkins is there in our package or not
+how we can check
+
+ 
+
+
+go to the yum.repo.d directory
+cd /etc/yum.repos.d/
+to check our linux details the command is
+->cat /etc/os-release
+
+after checking that
+before installing jenkins we have to install java
+when in server we didt have amazon-linux -extras
+we can use these command
+sudo dnf install -y java-11-amazon-corretto-devel
+after that install jenkins'
+and enter that passwords and install all plugins
+
+Basic -> project->go to new item->free projeect->excute 
+
+Now we have to install jenkins?
+first we have to install java
+to install java it is avilable in amazon-linux-extras
+but extras packeage only avilabale in Amazon linux 2 only..not avilable in Amazon linux  2023
+To install java _>sudo amazon-linux-extras install java-openjdk11 -y
+next step is 
+Now we have to enable the epel-relase
+sudo amazon-linux-extras install epel
+after thet we hve to move the file to yum.repos.d/
+sudo curl -o /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+now we have to install jenkins
+sudo yum install jenkins -y
+-----------------------------------------------------------------------------------------------
+Now coming to 2023 Amazon linux proxcess isc
+ create ec2 instance and connect-
+ google -> jenkins->download with redhat links->
+first we have to download a repositry  
+
+->sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repos
+
+after that we have to create a key
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+after that we have to install java with these link 
+sudo dnf install -y java-11-amazon-corretto-devel
+
+to check that java installed or not
+java -version
+after we have to install git in server jenkins
+after we also install maven
+Now we have to instal jenkins
+sudo yum install jenkins 
+to check that
+ sudo systemctl status jenkins
+ to enable the service
+ sudo systemctl enable jenkins
+ 
+now it is ready to use
+goo to google
+and paste ip address and along ith port number 8080
+they give some password address
+copy that path and past in cmd
+password will come.
+
+======================================================================================================================================================
+
